@@ -1,0 +1,26 @@
+{
+  "name": "astro_portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.1",
+    "@astrojs/tailwind": "^5.0.0",
+    "@radix-ui/react-menubar": "^1.0.3",
+    "@react-spring/shared": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@use-gesture/react": "^10.2.27",
+    "astro": "^3.0.10",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.0.24"
+  }
+}
