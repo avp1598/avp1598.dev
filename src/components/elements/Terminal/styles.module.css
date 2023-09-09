@@ -1,0 +1,12 @@
+.wrapper {
+  font-family: "Hack", monospace;
+  padding: 0.2rem 0.4rem 0 0.4rem;
+  line-height: 1.5;
+  width: 100%;
+  max-height: 80vh;
+  overflow-x: hidden;
+}
+
+.wrapper .simplebar-track:before {
+  border-radius: 10px;
+}
