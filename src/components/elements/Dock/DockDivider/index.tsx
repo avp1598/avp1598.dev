@@ -44,10 +44,10 @@ export const DockDivider = () => {
 
   return (
     <div
-      className="h-full flex items-center py-1 hover:cursor-ns-resize"
+      className="h-full flex items-center py-2 hover:cursor-ns-resize"
       {...bind()}
     >
-      <span className="w-1 h-full rounded-sm bg-slate-200"></span>
+      <span className="w-[0.1rem] h-full rounded-sm bg-[rgb(255,255,255,0.5)]"></span>
     </div>
   );
 };

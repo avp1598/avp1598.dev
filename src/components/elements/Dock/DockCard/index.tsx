@@ -15,7 +15,7 @@ interface DockCardProps {
   children: React.ReactNode;
 }
 
-const INITIAL_WIDTH = 32;
+const INITIAL_WIDTH = 36;
 
 export const DockCard = ({ children }: DockCardProps) => {
   const cardRef = React.useRef<HTMLButtonElement>(null!);

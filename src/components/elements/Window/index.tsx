@@ -26,7 +26,7 @@ const Window = ({ children }: Props) => {
         >
           <div className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)] h-1/4 w-3/4">
             <HeadingBar />
-            {/* <Terminal /> */}
+            <Terminal />
           </div>
         </Draggable>
       </div>

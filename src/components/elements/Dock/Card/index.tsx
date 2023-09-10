@@ -1,4 +1,4 @@
-import * as React from "react";
+import clsx from "clsx";
 
 interface CardProps {
   src: string;
@@ -22,9 +22,10 @@ export const Card = ({ src, smallHeight }: CardProps) => (
     <img
       src={src}
       alt=""
-      className={
-        "relative z-0 " + (smallHeight ? "h-3/4 w-3/4" : "h-full w-full")
-      }
+      className={clsx(
+        "relative z-0",
+        smallHeight ? "h-3/4 w-3/4" : "h-full w-full"
+      )}
     />
   </span>
 );
