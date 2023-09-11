@@ -85,10 +85,6 @@ const TerminalInput = ({
     }
   }, []);
 
-  // useEffect(() => {
-
-  // }, [disabled]);
-
   useEffect(() => {
     const timeoutId = setTimeout(() => setTyping(false), 200);
     return () => clearTimeout(timeoutId);
@@ -211,6 +207,45 @@ const TerminalInput = ({
                   prev.push("");
                   return prev;
                 });
+                break;
+              case "Tab":
+                e.preventDefault();
+                const target = e.target as HTMLInputElement;
+                const availableFiles = [
+                  ".github",
+                  "src",
+                  "README.md",
+                  "PROJECTS.md",
+                  "resume.sh",
+                  "contact.ts",
+                ];
+                const currentVal = target.value;
+                const currentValSplit = currentVal.split(" ");
+                const currentValLast =
+                  currentValSplit[currentValSplit.length - 1];
+
+                if (currentValLast === "") {
+                  target.value = currentVal + "  ";
+                  target.style.width = `${target.value.length}ch`;
+                  return;
+                }
+
+                const filteredFiles = availableFiles.filter((file) =>
+                  file.startsWith(currentValLast)
+                );
+
+                if (filteredFiles.length === 0) return;
+
+                if (filteredFiles.length > 0) {
+                  const newVal = target.value.replace(
+                    currentValLast,
+                    filteredFiles[0]
+                  );
+                  target.value = newVal;
+                  setVal(newVal);
+                  target.style.width = `${newVal.length}ch`;
+                  return;
+                }
 
                 break;
               default:

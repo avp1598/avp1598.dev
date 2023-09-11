@@ -20,7 +20,7 @@ const HeadingBar = (props: Props) => {
             className="w-[1.5rem] h-[1.5rem] mr-2"
           />
           <div className="text-[rgb(100,100,100)] flex-nowrap text-ellipsis overflow-hidden font-semibold">
-            avp: ~/Documents/portfolio — zsh — 100×35
+            avp: ~/Desktop/avp1598 — zsh — 100×35
           </div>
         </div>
       </div>

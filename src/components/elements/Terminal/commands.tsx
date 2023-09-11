@@ -8,6 +8,10 @@ export const CommandList = [
     description: "changes the current working directory",
   },
   {
+    command: "cat",
+    description: "display contents of a file to the terminal",
+  },
+  {
     command: "clear",
     description: "clears the terminal",
   },
@@ -41,7 +45,9 @@ export const CommandList = [
   },
 ];
 
-export const getResponse = (command: string) => {
+export const getResponse = (line: string) => {
+  const command = line.trim().split(" ")[0];
+  const args = line.trim().split(" ").slice(1);
   switch (command) {
     case "help":
       return (
@@ -58,6 +64,192 @@ export const getResponse = (command: string) => {
                 <span className="ml-2 w-2/3">{cmd.description}</span>
               </div>
             ))}
+          </div>
+        </div>
+      );
+    case "uname":
+      return (
+        <div className="font-mono text-terminal">
+          <div>
+            Darwin avp1598.local 20.3.0 Darwin Kernel Version 20.3.0: Thu Jan 21
+            00:07:06 PST 2021; root:xnu-7195.81.3~1/RELEASE_X86_64 x86_64
+          </div>
+        </div>
+      );
+    case "whoami":
+      return (
+        <div className="font-mono text-terminal">
+          <div>Aditya Veer Parmar</div>
+        </div>
+      );
+    case "ls":
+      if (args.length) {
+        return (
+          <div className="font-mono text-terminal">
+            ls: cannot access <span className="text-cyan-500">{args[0]}</span>{" "}
+            Permission denied
+          </div>
+        );
+      }
+      return (
+        <div className="font-mono text-terminal flex gap-4 items-center">
+          <a
+            className="bg-terminal text-slate-800"
+            href="https://github.com/avp1598"
+            target="_blank"
+          >
+            .github
+          </a>
+          <a
+            className="bg-terminal text-slate-800"
+            href="https://github.com/avp1598"
+            target="_blank"
+          >
+            src
+          </a>
+          <div className="text-cyan-500">README.md</div>
+          <div className="text-cyan-500">PROJECTS.md</div>
+          <div className="text-cyan-500">resume.sh</div>
+          <div className="text-cyan-500">contact.ts</div>
+        </div>
+      );
+    case "cd":
+      if (args.length) {
+        switch (args[0]) {
+          case "README.md":
+          case "resume.sh":
+          case "projects.go":
+          case "contact.ts":
+            return (
+              <div className="font-mono text-terminal">
+                zsh: cd: <span className="text-cyan-500">{args[0]}</span>: Not a
+                directory
+              </div>
+            );
+          case ".github":
+            window.open("https://github.com/avp1598", "_blank");
+            return (
+              <div className="font-mono text-terminal">
+                Opening <span className="text-cyan-500">{args[0]}</span>...
+              </div>
+            );
+          case "src":
+            window.open("https://github.com/avp1598", "_blank");
+            return (
+              <div className="font-mono text-terminal">
+                Opening <span className="text-cyan-500">{args[0]}</span>...
+              </div>
+            );
+          default:
+            return (
+              <div className="font-mono text-terminal">
+                cd: cannot access{" "}
+                <span className="text-cyan-500">{args[0]}</span>: Permission
+                denied
+              </div>
+            );
+        }
+      }
+      return <div />;
+    case "cat":
+      if (args.length) {
+        switch (args[0]) {
+          case "README.md":
+            return (
+              <div className="font-mono text-terminal">
+                # Hi, I'm Aditya Veer Parmar
+                <br />
+                <br />
+                I'm a software engineer based in India. I'm currently working on
+                building{" "}
+                <a href="">
+                  <span className="text-cyan-500">something</span>
+                </a>
+                .
+                <br />
+                <br />
+                I'm currently working at{" "}
+                <a
+                  href="https://www.crio.do/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-cyan-500">Crio.Do</span>
+                </a>
+                .
+                <br />
+                <br />
+                I'm currently learning{" "}
+                <a
+                  href="https://www.rust-lang.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-cyan-500">Rust</span>
+                </a>
+                .
+                <br />
+                <br />
+                You can reach me at{" "}
+              </div>
+            );
+          case "PROJECTS.md":
+            return (
+              <div className="font-mono text-terminal">
+                # Projects
+                <br />
+                <br />
+                ## [Project 1]
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <span className="text-cyan-500">Link</span>
+                </a>
+                <br />
+                <br />
+                ## [Project 2]
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <span className="text-cyan-500">Link</span>
+                </a>
+              </div>
+            );
+          case "resume.sh":
+          case "contact.ts":
+            return (
+              <div className="font-mono text-terminal">
+                zsh: cat: <span className="text-cyan-500">{args[0]}</span>:
+                Permission denied
+              </div>
+            );
+          case ".github":
+          case "src":
+            return (
+              <div className="font-mono text-terminal">
+                zsh: cat: <span className="text-cyan-500">{args[0]}</span>: Is a
+                directory
+              </div>
+            );
+          default:
+            return (
+              <div className="font-mono text-terminal">
+                zsh: cat: <span className="text-cyan-500">{args[0]}</span>: No
+                such file or directory
+              </div>
+            );
+        }
+      }
+      return <div />;
+
+    case "resume":
+      return (
+        <div className="font-mono text-terminal">
+          <div>
+            <a
+              href="https://drive.google"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-500"
+            >
+              Resume
+            </a>
           </div>
         </div>
       );

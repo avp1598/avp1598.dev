@@ -25,7 +25,16 @@ const Window = ({ children }: Props) => {
           bounds="parent"
           handle=".heading-bar"
         >
-          <div className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)] h-1/4 w-3/4">
+          <div
+            className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)]"
+            style={{
+              width: "75%",
+              minWidth: "60%",
+              minHeight: "25%",
+              maxHeight: "80%",
+              maxWidth: "80%",
+            }}
+          >
             <HeadingBar />
             <Terminal />
           </div>
