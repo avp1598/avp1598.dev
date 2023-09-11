@@ -16,12 +16,13 @@ const Window = ({ children }: Props) => {
       <MenuContent programName="Finder" />
       <div className="grid place-items-center min-h-screen overflow-hidden">
         <Draggable
-          bounds={{
-            top: -128,
-            left: -BOUND,
-            right: BOUND,
-            bottom: BOUND,
-          }}
+          // bounds={{
+          //   top: -256,
+          //   left: -BOUND,
+          //   right: BOUND,
+          //   bottom: BOUND,
+          // }}
+          bounds="parent"
           handle=".heading-bar"
         >
           <div className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)] h-1/4 w-3/4">

@@ -1,29 +1,93 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
+import SimpleBar from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
+import { getResponse } from "./commands";
 
 type Props = {};
 
 const Terminal = (props: Props) => {
-  const [val, setVal] = useState("");
+  const [commands, setCommands] = useState<string[]>([""]);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
+
+  useEffect(() => {
+    if (commands.length === 0) setCommands([""]);
+  }, [commands]);
+
+  return (
+    <SimpleBar
+      style={{
+        height: "90%",
+        maxHeight: "calc(100vh - 100px)",
+      }}
+    >
+      <div className="p-2">
+        {commands.map((cmd, i) => (
+          <div key={i} className="mb-1">
+            <TerminalInput
+              index={i}
+              command={cmd}
+              setCommands={setCommands}
+              commandHistory={commandHistory}
+              setCommandHistory={setCommandHistory}
+              historyIndex={historyIndex}
+              setHistoryIndex={setHistoryIndex}
+            />
+          </div>
+        ))}
+      </div>
+    </SimpleBar>
+  );
+};
+
+type TerminalInputProps = {
+  index: number;
+  command: string;
+  setCommands: React.Dispatch<React.SetStateAction<string[]>>;
+  commandHistory: string[];
+  setCommandHistory: React.Dispatch<React.SetStateAction<string[]>>;
+  historyIndex: number;
+  setHistoryIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const TerminalInput = ({
+  index,
+  command,
+  setCommands,
+  commandHistory,
+  setCommandHistory,
+  historyIndex,
+  setHistoryIndex,
+}: TerminalInputProps) => {
   const [typing, setTyping] = useState(false);
-  const [command, setCommand] = useState(false);
+
+  const [val, setVal] = useState<string>(command);
+  const [response, setResponse] = useState<JSX.Element>();
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    inputRef.current?.focus();
-    inputRef.current?.addEventListener("select", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    });
-    inputRef.current?.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    });
+    if (!disabled) {
+      inputRef.current?.focus();
+      inputRef.current?.addEventListener("select", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
+      inputRef.current?.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
+    }
   }, []);
+
+  // useEffect(() => {
+
+  // }, [disabled]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setTyping(false), 200);
@@ -31,15 +95,19 @@ const Terminal = (props: Props) => {
   }, [typing]);
 
   return (
-    <div className="p-2">
+    <>
       <div className="flex items-center">
         <div className="text-[rgb(255,95,88)] font-mono">root@avp1598:~ </div>
         <input
           type="text"
           value={val}
           ref={inputRef}
-          className="bg-transparent outline-none text-[rgb(40,220,14)] font-mono w-0 max-w-[100ch] caret-transparent border-none ml-2"
-          onBlur={(e) => e.target.focus()}
+          className="bg-transparent outline-none text-terminal font-mono w-0 max-w-[100ch] caret-transparent border-none ml-2"
+          onBlur={(e) => {
+            if (!disabled) {
+              e.target.focus();
+            }
+          }}
           onChange={(e) => {
             e.preventDefault();
             if (e.target.value.length > 100) return;
@@ -60,7 +128,6 @@ const Terminal = (props: Props) => {
             let checkPos = Math.abs(Math.floor(currentPos));
             switch (e.key) {
               case "ArrowLeft":
-                console.log({ checkPos, textLength, ctrlCheck });
                 if (checkPos < textLength && !ctrlCheck) {
                   setTyping(true);
                   cursorRef.current.style.transform = `translateX(${
@@ -96,7 +163,6 @@ const Terminal = (props: Props) => {
                 }
                 break;
               case "ArrowRight":
-                console.log({ checkPos, textLength, ctrlCheck });
                 if (checkPos !== 0 && !ctrlCheck) {
                   setTyping(true);
                   cursorRef.current.style.transform = `translateX(${
@@ -106,41 +172,48 @@ const Terminal = (props: Props) => {
                   e.preventDefault();
                 }
                 break;
-              // case "ArrowUp":
-              //   if (counter > 0) {
-              //     setCounter(counter - 1);
-              //     let currentCommand = commands[counter - 1];
-              //     setVal(currentCommand);
-              //     e.target.style.width =
-              //       currentCommand.length + "ch";
-              //     cursorRef.current.style.transform = `translateX(${
-              //       -currentCommand.length - 0.5
-              //     }ch)`;
-              //   }
-              //   break;
-              // case "ArrowDown":
-              //   if (counter <= commands.length - 1) {
-              //     if (counter === commands.length - 1) {
-              //       setVal("");
-              //       e.target.style.width = "0ch";
-              //       cursorRef.current.style.transform = `translateX(-0.5ch)`;
-              //     } else {
-              //       setCounter(counter + 1);
-              //       let currentCommand = commands[counter + 1];
-              //       setVal(currentCommand);
-              //       e.target.style.width =
-              //         currentCommand.length + "ch";
-              //       cursorRef.current.style.transform = `translateX(${
-              //         -currentCommand.length - 0.5
-              //       }ch)`;
-              //     }
-              //   }
-              //   break;
+              case "ArrowUp":
+                if (historyIndex > 0) {
+                  const target = e.target as HTMLInputElement;
+                  setHistoryIndex((prev) => {
+                    const newIndex = prev - 1;
+                    setVal(commandHistory[newIndex]);
+                    target.style.width = `${commandHistory[newIndex].length}ch`;
+                    return newIndex;
+                  });
+                }
+                break;
+              case "ArrowDown":
+                if (historyIndex < commandHistory.length - 1) {
+                  const target = e.target as HTMLInputElement;
+                  setHistoryIndex((prev) => {
+                    const newIndex = prev + 1;
+                    setVal(commandHistory[newIndex]);
+                    target.style.width = `${commandHistory[newIndex].length}ch`;
+                    return newIndex;
+                  });
+                }
+                break;
               case "Enter":
-                // setCommand(val);
+                setDisabled(true);
+                setHistoryIndex((prev) => prev + 1);
+                setCommandHistory((prev) => [...prev, val.trim()]);
+
+                if (val.trim() === "clear") {
+                  setCommands([]);
+                  return;
+                }
+
+                const response = getResponse(val.trim());
+                setResponse(response);
+                setCommands((prev) => {
+                  prev[index] = val.trim();
+                  prev.push("");
+                  return prev;
+                });
+
                 break;
               default:
-                // console.log(e.key)
                 break;
             }
           }}
@@ -148,19 +221,20 @@ const Terminal = (props: Props) => {
           autoComplete="off"
           autoCorrect="off"
         />
-        {/* <div className="w-2 h-4 bg-[rgb(40,255,18)] animate-blink" /> */}
         <div
           ref={cursorRef}
           className={clsx(
-            "w-[1ch] h-4 bg-[rgb(40,220,14)] font-mono",
-            typing ? "animate-none" : "animate-blink"
+            "w-[1ch] h-4 bg-terminal font-mono",
+            typing ? "animate-none" : "animate-blink",
+            disabled ? "hidden" : ""
           )}
           style={{
             transform: "translateX(0ch)",
           }}
         />
       </div>
-    </div>
+      <div>{response}</div>
+    </>
   );
 };
 

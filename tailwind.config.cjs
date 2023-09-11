@@ -12,6 +12,9 @@ module.exports = {
           "50%, 100%": { opacity: 0 },
         },
       },
+      colors: {
+        terminal: "rgb(40,200,14)",
+      },
     },
   },
   plugins: [],
