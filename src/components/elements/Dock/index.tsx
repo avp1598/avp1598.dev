@@ -11,25 +11,29 @@ import BooksIcon from "@/static/iBooks.jpg";
 
 type Props = {};
 const Apps = [
-  { src: FinderIcon.src, smallHeight: false },
   {
     src: TerminalIcon.src,
     smallHeight: false,
+    route: "/",
   },
+  { src: FinderIcon.src, smallHeight: false, route: "/resume" },
   {
     src: CodeIcon.src,
     smallHeight: true,
+    route: "/code",
   },
   {
     src: GithubIcon.src,
     smallHeight: true,
+    route: "https://github.com/avp1598",
   },
-  {
-    src: BooksIcon.src,
-    smallHeight: false,
-  },
+  // {
+  //   src: BooksIcon.src,
+  //   smallHeight: false,
+  //   route: "/books",
+  // },
   { src: null, smallHeight: false },
-  { src: ContactIcon.src, smallHeight: false },
+  { src: ContactIcon.src, smallHeight: false, route: "/contact" },
 ];
 
 function Dock({}: Props) {
@@ -38,7 +42,11 @@ function Dock({}: Props) {
       {Apps.map((src, index) =>
         src.src ? (
           <DockCard key={src.src}>
-            <Card src={src.src} smallHeight={src.smallHeight} />
+            <Card
+              src={src.src}
+              smallHeight={src.smallHeight}
+              route={src.route}
+            />
           </DockCard>
         ) : (
           <DockDivider key={index} />

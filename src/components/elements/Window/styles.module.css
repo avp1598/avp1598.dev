@@ -8,7 +8,7 @@
   border-radius: 0.6rem 0.6rem 0 0;
   box-shadow: inset #f5f5f5 0px 2px 1px, inset #d5d5d5 0 -2px 2px;
   user-select: none;
-  cursor: move;
+  /* cursor: move; */
   background: linear-gradient(
     180deg,
     rgba(250, 250, 250, 1) 0%,
