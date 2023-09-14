@@ -13,6 +13,7 @@
     "@astrojs/react": "^3.0.1",
     "@astrojs/tailwind": "^5.0.0",
     "@radix-ui/react-menubar": "^1.0.3",
+    "@radix-ui/react-tooltip": "^1.0.6",
     "@react-spring/shared": "^9.7.3",
     "@react-spring/web": "^9.7.3",
     "@types/react": "^18.0.21",

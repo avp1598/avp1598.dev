@@ -7,24 +7,32 @@ import CodeIcon from "@/static/code.png";
 import GithubIcon from "@/static/github.png";
 import FinderIcon from "@/static/finderIcon.png";
 import ContactIcon from "@/static/contact.png";
-import BooksIcon from "@/static/iBooks.jpg";
 
 type Props = {};
+
 const Apps = [
   {
     src: TerminalIcon.src,
     smallHeight: false,
+    tooltip: "Terminal",
     route: "/",
   },
-  { src: FinderIcon.src, smallHeight: false, route: "/resume" },
+  {
+    src: FinderIcon.src,
+    smallHeight: false,
+    tooltip: "Resume",
+    route: "/resume",
+  },
   {
     src: CodeIcon.src,
     smallHeight: true,
+    tooltip: "Source Code",
     route: "/code",
   },
   {
     src: GithubIcon.src,
     smallHeight: true,
+    tooltip: "Github",
     route: "https://github.com/avp1598",
   },
   // {
@@ -33,7 +41,12 @@ const Apps = [
   //   route: "/books",
   // },
   { src: null, smallHeight: false },
-  { src: ContactIcon.src, smallHeight: false, route: "/contact" },
+  {
+    src: ContactIcon.src,
+    smallHeight: false,
+    tooltip: "Contact",
+    route: "/contact",
+  },
 ];
 
 function Dock({}: Props) {
@@ -46,6 +59,7 @@ function Dock({}: Props) {
               src={src.src}
               smallHeight={src.smallHeight}
               route={src.route}
+              tooltip={src.tooltip}
             />
           </DockCard>
         ) : (

@@ -7,10 +7,10 @@ import ControlCenterIcon from "@/static/controlcenter.png";
 import { convertToReadableDate } from "@/utils";
 
 type MenuContentProps = {
-  programName: string;
+  title: string;
 };
 
-const MenuContent = ({ programName }: MenuContentProps) => {
+const MenuContent = ({ title }: MenuContentProps) => {
   return (
     <Menubar.Root className="flex justify-between items-center absolute z-10 bg-[rgb(40,40,40,0.25)] text-white w-full h-6 box-border text-sm backdrop-blur-lg">
       <Menubar.Menu>
@@ -25,7 +25,7 @@ const MenuContent = ({ programName }: MenuContentProps) => {
             />
           </Menubar.Trigger>
           <Menubar.Trigger>
-            <div className="text-xs font-bold ml-2">Terminal</div>
+            <div className="text-xs font-bold ml-2">{title}</div>
           </Menubar.Trigger>
           <Menubar.Trigger>
             <div className="text-xs">File</div>

@@ -1,54 +1,70 @@
-# Astro Starter Kit: Basics
+<h2 align="center">
+<br/>
 
-```
-npm create astro@latest -- --template basics
-```
+<a  href="http://avp1598.com/"  target="_blank">avp1598.com</a>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+</h2>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+<div align="center">
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+<img  alt="Demo"  src="./public/assets/ss.png" />
 
-## 🚀 Project Structure
+</div>
 
-Inside of your Astro project, you'll see the following folders and files:
+<br/>
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+<div align="center">
+  
+  <a href="">![opensource](https://img.shields.io/badge/open-source-red)</a>
+  <a href="">![js](https://img.shields.io/badge/language-ts-blue)</a>
+ 
+  <!-- <a href="/">![stars](https://img.shields.io/github/stars/avp1598/avp1598.com)</a>
+  <a href="/">![forks](https://img.shields.io/github/forks/avp1598/avp1598.com)</a> -->
+  
+</div>
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+<h3 align="center">
+🔹<a  href="https://github.com/avp1598/avp1598.com/issues">Report Bug</a> &nbsp; &nbsp;
+🔹<a  href="https://github.com/avp1598/avp1598.com/issues">Request Feature</a>
+</h3>
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+> Best viewed on Chrome version 80+ and Firefox version 75+
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Built With
 
-## 🧞 Commands
+My personal portfolio
+<a  href="http://avp1598.com/"  target="_blank">avp1598.com</a> made using
+Astro and TailwindCSS emulating a macOS terminal among other
+features.<br/>
 
-All commands are run from the root of the project, from a terminal:
+This project was built using these following:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Astro
 
-## 👀 Want to learn more?
+- TailwindCSS
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Typescript
+
+- React
+
+## Getting Started
+
+Clone down this repository. You will need `node.js`, `yarn` and `git` installed
+globally on your machine.
+
+## 🛠 Installation and Setup Instructions
+
+1. Installation: `yarn`
+
+2. In the project directory, you can run: `yarn dev`
+
+Runs the app in the development mode.
+
+Open [http://localhost:4321](http://localhost:4321) to view it in the browser.
+
+The page will reload if you make edits.
+
+### Show your support
+
+Give a ⭐ if you like this website and drop a follow/DM me on
+[Twitter](https://twitter.com/ThePrincipalDev)!

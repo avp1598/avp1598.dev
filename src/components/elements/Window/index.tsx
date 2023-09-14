@@ -3,12 +3,13 @@ import Draggable from "react-draggable";
 import HeadingBar from "./HeadingBar";
 
 type Props = {
-  children?: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
 };
 
-const Window = ({ children }: Props) => {
+const Window = ({ title, children }: Props) => {
   return (
-    <div className="grid place-items-center min-h-screen overflow-hidden">
+    <div className="grid place-items-center min-h-screen overflow-auto">
       <Draggable bounds="parent" handle=".heading-bar">
         <div
           className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)]"
@@ -20,7 +21,7 @@ const Window = ({ children }: Props) => {
             maxWidth: "80%",
           }}
         >
-          <HeadingBar />
+          <HeadingBar title={title} />
           {children}
         </div>
       </Draggable>
