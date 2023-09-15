@@ -30,6 +30,8 @@
 
 > Best viewed on Chrome version 80+ and Firefox version 75+
 
+Inspired from [boidushya.com](https://boidushya.com/)
+
 ## Built With
 
 My personal portfolio
