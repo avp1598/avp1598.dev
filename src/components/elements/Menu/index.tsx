@@ -12,7 +12,7 @@ type MenuContentProps = {
 
 const MenuContent = ({ title }: MenuContentProps) => {
   return (
-    <Menubar.Root className="flex justify-between items-center absolute z-10 bg-[rgb(40,40,40,0.25)] text-white w-full h-6 box-border text-sm backdrop-blur-lg">
+    <Menubar.Root className="hidden md:flex justify-between items-center absolute z-10 bg-[rgb(40,40,40,0.25)] text-white w-full h-6 box-border text-sm backdrop-blur-lg">
       <Menubar.Menu>
         <div className="mx-4 flex flex-row items-center gap-4">
           <Menubar.Trigger>
