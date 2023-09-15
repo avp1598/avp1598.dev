@@ -11,7 +11,7 @@ const Project = () => {
         maxHeight: "calc(100vh - 100px)",
       }}
     >
-      <div className="flex flex-col p-4 overflow-auto">
+      <div className="flex flex-col p-4 overflow-auto items-center">
         {projects.map((project) => (
           <ProjectCard key={project.url} {...project} />
         ))}
