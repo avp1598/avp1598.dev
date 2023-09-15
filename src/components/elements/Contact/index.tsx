@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-const ContactPage = (props: Props) => {
+const ContactPage = () => {
   return (
     <div className="p-4 border rounded-lg m-6 text-zinc-300 border-zinc-700 flex flex-col gap-4">
       <a

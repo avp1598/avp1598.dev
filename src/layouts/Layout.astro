@@ -2,6 +2,11 @@
 import Dock from "@/components/elements/Dock";
 import MenuContent from "@/components/elements/Menu";
 import { ViewTransitions } from "astro:transitions";
+import {
+  BackgroundPicture,
+  ImageSupportDetection,
+} from "astro-imagetools/components";
+
 interface Props {
   title: string;
 }
@@ -12,6 +17,7 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <ImageSupportDetection />
     <ViewTransitions />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -21,17 +27,19 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <MenuContent title={title} />
-    <slot />
-    <Dock client:visible transition:persist />
-    <style is:global>
-      html {
-        font-family: system-ui, sans-serif;
-        background: url("../static/bg10.jpg") no-repeat center center;
-        background-size: cover;
-        overflow: auto;
-        min-height: 100vh;
-      }
-    </style>
+    <BackgroundPicture src="/src/static/bg10.jpg">
+      <MenuContent title={title} />
+      <slot />
+      <Dock client:only transition:persist />
+      <style is:global>
+        html {
+          font-family: system-ui, sans-serif;
+          /* background: url("../static/bg10.jpg") no-repeat center center; */
+          /* background-size: cover; */
+          overflow: hidden;
+          min-height: 100vh;
+        }
+      </style>
+    </BackgroundPicture>
   </body>
 </html>

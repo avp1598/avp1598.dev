@@ -1,12 +1,14 @@
-import { DockContainer } from "./DockContainer";
-import { DockCard } from "./DockCard";
 import { Card } from "./Card";
 import { DockDivider } from "./DockDivider";
 import TerminalIcon from "@/static/terminal.png";
 import CodeIcon from "@/static/code.png";
 import GithubIcon from "@/static/github.png";
 import FinderIcon from "@/static/finderIcon.png";
+import FolderIcon from "@/static/folder.png";
 import ContactIcon from "@/static/contact.png";
+import DockCard from "./DockCard";
+import DockContainer from "./DockContainer";
+import { animated, useSpring } from "@react-spring/web";
 
 type Props = {};
 
@@ -35,11 +37,12 @@ const Apps = [
     tooltip: "Github",
     route: "https://github.com/avp1598",
   },
-  // {
-  //   src: BooksIcon.src,
-  //   smallHeight: false,
-  //   route: "/books",
-  // },
+  {
+    src: FolderIcon.src,
+    smallHeight: true,
+    tooltip: "Projects",
+    route: "/projects",
+  },
   { src: null, smallHeight: false },
   {
     src: ContactIcon.src,
@@ -50,23 +53,26 @@ const Apps = [
 ];
 
 function Dock({}: Props) {
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
-    <DockContainer>
-      {Apps.map((src, index) =>
-        src.src ? (
-          <DockCard key={src.src}>
-            <Card
-              src={src.src}
-              smallHeight={src.smallHeight}
-              route={src.route}
-              tooltip={src.tooltip}
-            />
-          </DockCard>
-        ) : (
-          <DockDivider key={index} />
-        )
-      )}
-    </DockContainer>
+    <animated.div style={props}>
+      <DockContainer>
+        {Apps.map((src, index) =>
+          src.src ? (
+            <DockCard key={src.src}>
+              <Card
+                src={src.src}
+                smallHeight={src.smallHeight}
+                route={src.route}
+                tooltip={src.tooltip}
+              />
+            </DockCard>
+          ) : (
+            <DockDivider key={index} />
+          )
+        )}
+      </DockContainer>
+    </animated.div>
   );
 }
 

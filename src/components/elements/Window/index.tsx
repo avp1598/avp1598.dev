@@ -14,7 +14,7 @@ const Window = ({ title, children }: Props) => {
         <div
           className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)]"
           style={{
-            height: "40%",
+            height: "50%",
             minWidth: "60%",
             minHeight: "25%",
             maxHeight: "80%",

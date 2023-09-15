@@ -17,7 +17,7 @@ interface DockCardProps {
 
 const INITIAL_WIDTH = 36;
 
-export const DockCard = ({ children }: DockCardProps) => {
+const DockCard = ({ children }: DockCardProps) => {
   const [dockHovered, setDockHovered] = React.useState(false);
   const cardRef = React.useRef<HTMLButtonElement>(null!);
   /**
@@ -50,7 +50,6 @@ export const DockCard = ({ children }: DockCardProps) => {
   useMousePosition(
     {
       onChange: ({ value }) => {
-        // console.log(value);
         const mouseX = value.x;
 
         if (dock.width > 0) {
@@ -98,6 +97,7 @@ export const DockCard = ({ children }: DockCardProps) => {
       y.start(-INITIAL_WIDTH / 2, {
         loop: () => {
           if (3 === timesLooped.current++) {
+            // @ts-ignore
             timeoutRef.current = setTimeout(() => {
               opacity.start(0);
               y.set(0);
@@ -141,3 +141,5 @@ export const DockCard = ({ children }: DockCardProps) => {
     </div>
   );
 };
+
+export default DockCard;
