@@ -23,12 +23,12 @@ const Terminal = (props: Props) => {
       }}
     >
       <div className="p-2">
-        {/* <div className="font-mono text-terminal">
+        <div className="font-mono text-terminal">
           <div>ZSH version 6.9.0 (x86_64-apple-darwin20.3.0)</div>
           <div>
             Type <span className="text-cyan-500">'help'</span> to get started.
           </div>
-        </div> */}
+        </div>
         {commands.map((cmd, i) => (
           <div key={i} className="mb-1">
             <TerminalInput
