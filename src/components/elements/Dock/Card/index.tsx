@@ -17,7 +17,11 @@ export const Card = ({ src, tooltip, smallHeight, route }: CardProps) => (
   <TooltipProvider delayDuration={100}>
     <Tooltip>
       <TooltipTrigger className="h-full w-full">
-        <a href={route} target={route?.startsWith("http") ? "_blank" : "_self"}>
+        <a
+          href={route}
+          target={route?.startsWith("http") ? "_blank" : "_self"}
+          aria-label={tooltip}
+        >
           <span
             className={`relative flex items-center justify-center z-0 overflow-hidden w-full h-full rounded-lg ${
               smallHeight ? "bg-white" : ""
@@ -25,7 +29,7 @@ export const Card = ({ src, tooltip, smallHeight, route }: CardProps) => (
           >
             <img
               src={src}
-              alt=""
+              alt={tooltip}
               className={clsx(
                 "relative z-0",
                 smallHeight ? "h-3/4 w-3/4" : "h-full w-full"

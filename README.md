@@ -7,7 +7,7 @@
 
 <div align="center">
 
-<img  alt="Demo"  src="./public/assets/ss.png" />
+<img  alt="Demo"  src="./public/assets/ss.webp" />
 
 </div>
 
@@ -22,11 +22,6 @@
   <a href="/">![forks](https://img.shields.io/github/forks/avp1598/avp1598.com)</a> -->
   
 </div>
-
-<h3 align="center">
-🔹<a  href="https://github.com/avp1598/avp1598.com/issues">Report Bug</a> &nbsp; &nbsp;
-🔹<a  href="https://github.com/avp1598/avp1598.com/issues">Request Feature</a>
-</h3>
 
 > Best viewed on Chrome version 80+ and Firefox version 75+
 

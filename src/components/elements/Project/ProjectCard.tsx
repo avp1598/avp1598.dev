@@ -49,7 +49,7 @@ type Props = {
 const ProjectCard = ({ url, title, description, date, tags }: Props) => {
   return (
     <Card>
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" aria-label={title}>
         <article className="p-4">
           <div className="flex justify-between gap-2 items-center">
             <span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">

@@ -97,13 +97,15 @@ export const getResponse = (line: string) => {
             className="bg-terminal text-slate-800"
             href="https://github.com/avp1598"
             target="_blank"
+            aria-label="GitHub"
           >
             .github
           </a>
           <a
             className="bg-terminal text-slate-800"
-            href="https://github.com/avp1598"
+            href="https://github.com/avp1598/avp1598.com"
             target="_blank"
+            aria-label="GitHub"
           >
             src
           </a>
@@ -162,7 +164,7 @@ export const getResponse = (line: string) => {
                 <br />
                 <br />
                 I'm currently working with{" "}
-                <a href="https://tribes.xyz">
+                <a href="https://tribes.xyz" aria-label="tribes">
                   <span className="text-cyan-500">Tribes.xyz</span>
                 </a>
                 .

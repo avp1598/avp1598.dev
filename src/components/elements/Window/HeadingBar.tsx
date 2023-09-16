@@ -18,7 +18,7 @@ const HeadingBar = ({ title }: Props) => {
         <div className="flex flex-row mx-2 gap-2 items-center justify-center w-full">
           <img
             src={icon.src}
-            alt="icon"
+            alt="Home"
             className="w-[1.5rem] h-[1.5rem] mr-2"
           />
           <div className="text-[rgb(100,100,100)] text-ellipsis overflow-hidden font-semibold whitespace-nowrap">

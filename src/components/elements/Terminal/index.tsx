@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import SimpleBar from "simplebar-react";
+// import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { getResponse } from "./commands";
+
+const SimpleBar = React.lazy(() => import("simplebar-react"));
 
 type Props = {};
 
@@ -101,6 +103,7 @@ export const TerminalInput = ({
       <div className="flex items-center">
         <div className="text-[rgb(255,95,88)] font-mono">root@avp1598:~ </div>
         <input
+          aria-label="Terminal Input"
           type="text"
           value={val}
           ref={inputRef}

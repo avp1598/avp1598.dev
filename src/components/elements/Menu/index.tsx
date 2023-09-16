@@ -22,6 +22,7 @@ const MenuContent = ({ title }: MenuContentProps) => {
               style={{
                 filter: "invert(1)",
               }}
+              alt="Apple"
             />
           </Menubar.Trigger>
           <Menubar.Trigger>
@@ -51,6 +52,7 @@ const MenuContent = ({ title }: MenuContentProps) => {
               style={{
                 filter: "invert(1)",
               }}
+              alt="Battery"
             />
           </div>
           <div>
@@ -60,6 +62,7 @@ const MenuContent = ({ title }: MenuContentProps) => {
               style={{
                 filter: "invert(1)",
               }}
+              alt="Wifi"
             />
           </div>
           <div>
@@ -69,6 +72,7 @@ const MenuContent = ({ title }: MenuContentProps) => {
               style={{
                 filter: "invert(1)",
               }}
+              alt="Control Center"
             />
           </div>
           <div className="text-xs">

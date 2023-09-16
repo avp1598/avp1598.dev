@@ -126,6 +126,7 @@ const DockCard = ({ children }: DockCardProps) => {
   return (
     <div className="flex flex-col items-center gap-1.5">
       <animated.button
+        aria-label="Dock Card"
         ref={cardRef}
         onClick={handleClick}
         style={{

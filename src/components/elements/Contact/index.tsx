@@ -6,6 +6,7 @@ const ContactPage = () => {
         target="_blank"
         rel="noreferrer"
         className="flex flex-row justify-between"
+        aria-label="Twitter"
       >
         <span>Twitter</span>
         <svg
@@ -24,6 +25,7 @@ const ContactPage = () => {
         target="_blank"
         rel="noreferrer"
         className="flex flex-row justify-between"
+        aria-label="Telegram"
       >
         <span>Telegram</span>
         <svg
@@ -42,6 +44,7 @@ const ContactPage = () => {
         target="_blank"
         rel="noreferrer"
         className="flex flex-row justify-between"
+        aria-label="Email"
       >
         <span>Email</span>
         <svg
