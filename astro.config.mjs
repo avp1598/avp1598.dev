@@ -3,7 +3,6 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 import compress from "astro-compress";
-import purgecss from "astro-purgecss";
 import serviceWorker from "astrojs-service-worker";
 import partytown from "@astrojs/partytown";
 import robotsTxt from "astro-robots-txt";
@@ -18,7 +17,6 @@ export default defineConfig({
     tailwind(),
     astroImageTools,
     compress(),
-    // purgecss(),
     serviceWorker(),
     partytown(),
     robotsTxt(),

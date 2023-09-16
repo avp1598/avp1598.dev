@@ -23,7 +23,6 @@
     "astro": "^3.0.10",
     "astro-compress": "^2.0.15",
     "astro-imagetools": "^0.9.0",
-    "astro-purgecss": "^3.1.0",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
     "astrojs-service-worker": "^1.1.0",

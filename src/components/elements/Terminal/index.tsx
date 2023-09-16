@@ -1,10 +1,8 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-// import SimpleBar from "simplebar-react";
+import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { getResponse } from "./commands";
-
-const SimpleBar = React.lazy(() => import("simplebar-react"));
 
 type Props = {};
 
@@ -32,7 +30,7 @@ const Terminal = (props: Props) => {
           </div>
         </div>
         {commands.map((cmd, i) => (
-          <div key={i} className="mb-1">
+          <div key={cmd} className="mb-1">
             <TerminalInput
               index={i}
               command={cmd}
