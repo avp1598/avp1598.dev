@@ -103,7 +103,7 @@ export const getResponse = (line: string) => {
           </a>
           <a
             className="bg-terminal text-slate-800"
-            href="https://github.com/avp1598/avp1598.com"
+            href="https://github.com/avp1598/avp1598.dev"
             target="_blank"
             aria-label="GitHub"
           >

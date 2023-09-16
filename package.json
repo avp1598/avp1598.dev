@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/partytown": "^2.0.0",
     "@astrojs/react": "^3.0.1",
     "@astrojs/tailwind": "^5.0.0",
     "@radix-ui/react-menubar": "^1.0.3",
@@ -20,6 +21,12 @@
     "@types/react-dom": "^18.0.6",
     "@use-gesture/react": "^10.2.27",
     "astro": "^3.0.10",
+    "astro-compress": "^2.0.15",
+    "astro-imagetools": "^0.9.0",
+    "astro-purgecss": "^3.1.0",
+    "astro-robots-txt": "^1.0.0",
+    "astro-webmanifest": "^1.0.0",
+    "astrojs-service-worker": "^1.1.0",
     "clsx": "^2.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

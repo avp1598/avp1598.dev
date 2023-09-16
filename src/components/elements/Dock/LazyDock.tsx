@@ -4,7 +4,7 @@ import TerminalIcon from "@/static/terminal.png";
 import CodeIcon from "@/static/code.png";
 import GithubIcon from "@/static/github.png";
 import FinderIcon from "@/static/finder.png";
-import ThingsIcon from "@/static/things.png";
+import FolderIcon from "@/static/folder.png";
 import ContactIcon from "@/static/contact.png";
 import DockCard from "./DockCard";
 import DockContainer from "./DockContainer";
@@ -38,8 +38,8 @@ const Apps = [
     route: "https://github.com/avp1598",
   },
   {
-    src: ThingsIcon.src,
-    smallHeight: false,
+    src: FolderIcon.src,
+    smallHeight: true,
     tooltip: "Projects",
     route: "/projects",
   },

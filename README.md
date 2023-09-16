@@ -1,7 +1,7 @@
 <h2 align="center">
 <br/>
 
-<a  href="http://avp1598.com/"  target="_blank">avp1598.com</a>
+<a  href="http://avp1598.dev/"  target="_blank">avp1598.dev</a>
 
 </h2>
 
@@ -18,8 +18,6 @@
   <a href="">![opensource](https://img.shields.io/badge/open-source-red)</a>
   <a href="">![js](https://img.shields.io/badge/language-ts-blue)</a>
  
-  <!-- <a href="/">![stars](https://img.shields.io/github/stars/avp1598/avp1598.com)</a>
-  <a href="/">![forks](https://img.shields.io/github/forks/avp1598/avp1598.com)</a> -->
   
 </div>
 
@@ -30,7 +28,7 @@ Inspired from [boidushya.com](https://boidushya.com/)
 ## Built With
 
 My personal portfolio
-<a  href="http://avp1598.com/"  target="_blank">avp1598.com</a> made using
+<a  href="http://avp1598.dev/"  target="_blank">avp1598.dev</a> made using
 Astro and TailwindCSS emulating a macOS terminal among other
 features.<br/>
 
