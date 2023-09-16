@@ -18,7 +18,7 @@ export default defineConfig({
     tailwind(),
     astroImageTools,
     compress(),
-    purgecss(),
+    // purgecss(),
     serviceWorker(),
     partytown(),
     robotsTxt(),
