@@ -30,7 +30,7 @@ const Terminal = (props: Props) => {
           </div>
         </div>
         {commands.map((cmd, i) => (
-          <div key={cmd} className="mb-1">
+          <div key={i} className="mb-1">
             <TerminalInput
               index={i}
               command={cmd}
