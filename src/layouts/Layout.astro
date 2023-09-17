@@ -45,6 +45,11 @@ const { description } = Astro.props;
           /* background-size: cover; */
           overflow: hidden;
           min-height: 100vh;
+          @-moz-document url-prefix() {
+            input {
+              min-width: 10px;
+            }
+          }
         }
       </style>
     </BackgroundImage>
