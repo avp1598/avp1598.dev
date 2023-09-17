@@ -21,13 +21,14 @@
   
 </div>
 
-> Best viewed on Chrome version 80+ and Firefox version 75+
+Inspired from [boidushya.com](https://github.com/boidushya/boidushya.com)
 
-Inspired from [boidushya.com](https://boidushya.com/)
+## Lighthouse Score
 
-## Built With
+<img  alt="Lighthouse Score"  src="./public/assets/lighthouse.webp" />
 
-My personal portfolio
+## My personal portfolio
+
 <a  href="http://avp1598.dev/"  target="_blank">avp1598.dev</a> made using
 Astro and TailwindCSS emulating a macOS terminal among other
 features.<br/>
@@ -41,6 +42,8 @@ This project was built using these following:
 - Typescript
 
 - React
+
+- React Spring
 
 ## Getting Started
 
