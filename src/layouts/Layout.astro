@@ -5,6 +5,7 @@ import { ViewTransitions } from "astro:transitions";
 import {
   BackgroundImage,
   ImageSupportDetection,
+  // @ts-ignore
 } from "astro-imagetools/components";
 
 interface Props {
@@ -12,8 +13,7 @@ interface Props {
   description: string;
 }
 
-const { title } = Astro.props;
-const { description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -41,8 +41,6 @@ const { description } = Astro.props;
       <style is:global>
         html {
           font-family: system-ui, sans-serif;
-          /* background: url("../static/bg10.webp") no-repeat center center; */
-          /* background-size: cover; */
           overflow: hidden;
           min-height: 100vh;
           @-moz-document url-prefix() {
