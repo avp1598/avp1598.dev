@@ -27,10 +27,10 @@ Inspired from [boidushya.com](https://github.com/boidushya/boidushya.com)
 
 <img  alt="Lighthouse Score"  src="./public/assets/lighthouse.webp" />
 
-## My personal portfolio
+## My portfolio
 
 <a  href="http://avp1598.dev/"  target="_blank">avp1598.dev</a> made using
-Astro and TailwindCSS emulating a macOS terminal among other
+Astro.js, TailwindCSS and React emulating a macOS terminal among other
 features.<br/>
 
 This project was built using these following:
