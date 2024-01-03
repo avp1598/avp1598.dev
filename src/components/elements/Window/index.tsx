@@ -1,28 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
 import HeadingBar from "./HeadingBar";
+import { animated, useSpring } from "@react-spring/web";
 
 type Props = {
-  children?: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
 };
 
-const Window = ({ children }: Props) => {
+const Window = ({ title, children }: Props) => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [oldPos, setOldPos] = useState({ x: 0, y: 0 });
+
+  const toggleFullScreen = () => {
+    if (!isFullScreen) {
+      setOldPos({ x: pos.x, y: pos.y });
+      setPos({ x: 0, y: 0 });
+    } else {
+      setPos({ x: oldPos.x, y: oldPos.y });
+    }
+    setIsFullScreen(!isFullScreen);
+  };
+
+  const styles = useSpring({
+    to: {
+      height: isFullScreen ? "91.5%" : "50%",
+      minWidth: isFullScreen ? "100%" : "60%",
+      minHeight: isFullScreen ? "91.5%" : "25%",
+      maxWidth: isFullScreen ? "100%" : "80%",
+    },
+    config: {
+      mass: 1,
+      tension: 300,
+      friction: 30,
+    },
+  });
+
   return (
     <div className="grid place-items-center min-h-screen overflow-hidden">
-      <Draggable bounds="parent" handle=".heading-bar">
-        <div
-          className="rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)]"
-          style={{
-            height: "40%",
-            minWidth: "60%",
-            minHeight: "25%",
-            maxHeight: "80%",
-            maxWidth: "80%",
-          }}
+      <Draggable
+        handle=".heading-bar"
+        position={pos}
+        onDrag={(e, data) => {
+          setPos({ x: data.x, y: data.y });
+        }}
+      >
+        <animated.div
+          className={`rounded-lg shadow-xl resize overflow-hidden backdrop-blur-lg bg-[rgb(23,23,23,0.85)] ${
+            isFullScreen ? "mt-[-35px]" : ""
+          }`}
+          style={styles}
         >
-          <HeadingBar />
+          <HeadingBar title={title} onExpandClick={toggleFullScreen} />
           {children}
-        </div>
+        </animated.div>
       </Draggable>
     </div>
   );

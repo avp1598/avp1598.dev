@@ -2,36 +2,54 @@
 import Dock from "@/components/elements/Dock";
 import MenuContent from "@/components/elements/Menu";
 import { ViewTransitions } from "astro:transitions";
+import {
+  BackgroundImage,
+  ImageSupportDetection,
+  // @ts-ignore
+} from "astro-imagetools/components";
+
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <script
+      src="https://beamanalytics.b-cdn.net/beam.min.js"
+      data-token="ab3ff4d6-6b48-4c89-a458-64835f64bda4"
+      async
+      type="text/partytown"></script>
     <ViewTransitions />
+    <ImageSupportDetection />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <MenuContent programName="Finder" />
-    <slot />
-    <Dock client:only transition:persist />
-    <style is:global>
-      html {
-        font-family: system-ui, sans-serif;
-        background: url("../static/bg10.jpg") no-repeat center center;
-        background-size: cover;
-        overflow: hidden;
-        min-height: 100vh;
-      }
-    </style>
+    <BackgroundImage src="/src/static/bg10.webp">
+      <MenuContent title={title} />
+      <slot />
+      <Dock client:only transition:persist />
+      <style is:global>
+        html {
+          font-family: system-ui, sans-serif;
+          overflow: hidden;
+          min-height: 100vh;
+          @-moz-document url-prefix() {
+            input {
+              min-width: 10px;
+            }
+          }
+        }
+      </style>
+    </BackgroundImage>
   </body>
 </html>

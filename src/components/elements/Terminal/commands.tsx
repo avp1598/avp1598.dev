@@ -28,7 +28,7 @@ export const CommandList = [
     description: "view my projects",
   },
   {
-    command: "code .",
+    command: "code",
     description: "open a new VS Code window",
   },
   {
@@ -56,7 +56,7 @@ export const getResponse = (line: string) => {
           <div>These shell commands are defined internally</div>
           <div>
             Type <span className="text-cyan-500">'help'</span> to see this list.
-          </div>
+          </div> */}
           <div className="mt-6">
             {CommandList.map((cmd) => (
               <div key={cmd.command} className="flex w-full">
@@ -97,18 +97,19 @@ export const getResponse = (line: string) => {
             className="bg-terminal text-slate-800"
             href="https://github.com/avp1598"
             target="_blank"
+            aria-label="GitHub"
           >
             .github
           </a>
           <a
             className="bg-terminal text-slate-800"
-            href="https://github.com/avp1598"
+            href="https://github.com/avp1598/avp1598.dev"
             target="_blank"
+            aria-label="GitHub"
           >
             src
           </a>
           <div className="text-cyan-500">README.md</div>
-          <div className="text-cyan-500">PROJECTS.md</div>
           <div className="text-cyan-500">resume.sh</div>
           <div className="text-cyan-500">contact.ts</div>
         </div>
@@ -118,7 +119,6 @@ export const getResponse = (line: string) => {
         switch (args[0]) {
           case "README.md":
           case "resume.sh":
-          case "projects.go":
           case "contact.ts":
             return (
               <div className="font-mono text-terminal">
@@ -157,68 +157,34 @@ export const getResponse = (line: string) => {
           case "README.md":
             return (
               <div className="font-mono text-terminal">
-                # Hi, I'm Aditya Veer Parmar
+                Hi, I'm Aditya Veer Parmar
                 <br />
                 <br />
-                I'm a software engineer based in India. I'm currently working on
-                building{" "}
-                <a href="">
-                  <span className="text-cyan-500">something</span>
+                I'm a full stack software engineer with 5 years of experience.
+                <br />
+                <br />
+                I'm currently working with{" "}
+                <a href="https://tribes.xyz" aria-label="tribes">
+                  <span className="text-cyan-500">Tribes.xyz</span>
                 </a>
                 .
                 <br />
-                <br />
-                I'm currently working at{" "}
-                <a
-                  href="https://www.crio.do/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-cyan-500">Crio.Do</span>
-                </a>
-                .
+                <br />I love working on new technologies and building cool stuff
+                from scratch (like this portfolio).
                 <br />
                 <br />
-                I'm currently learning{" "}
-                <a
-                  href="https://www.rust-lang.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-cyan-500">Rust</span>
-                </a>
-                .
-                <br />
-                <br />
-                You can reach me at{" "}
-              </div>
-            );
-          case "PROJECTS.md":
-            return (
-              <div className="font-mono text-terminal">
-                # Projects
-                <br />
-                <br />
-                ## [Project 1]
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <span className="text-cyan-500">Link</span>
-                </a>
-                <br />
-                <br />
-                ## [Project 2]
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <span className="text-cyan-500">Link</span>
-                </a>
               </div>
             );
           case "resume.sh":
+            return () => {
+              location.href = "/resume";
+              return <div />;
+            };
           case "contact.ts":
-            return (
-              <div className="font-mono text-terminal">
-                zsh: cat: <span className="text-cyan-500">{args[0]}</span>:
-                Permission denied
-              </div>
-            );
+            return () => {
+              location.href = "/contact";
+              return <div />;
+            };
           case ".github":
           case "src":
             return (
@@ -238,21 +204,26 @@ export const getResponse = (line: string) => {
       }
       return <div />;
 
+    case "resume.sh":
+    case "./resume.sh":
     case "resume":
-      return (
-        <div className="font-mono text-terminal">
-          <div>
-            <a
-              href="https://drive.google"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cyan-500"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
-      );
+      return () => {
+        location.href = "/resume";
+        return <div />;
+      };
+    case "contact.ts":
+    case "./contact.ts":
+    case "contact":
+      return () => {
+        location.href = "/contact";
+        return <div />;
+      };
+    case "code":
+      return () => {
+        location.href = "/code";
+        return <div />;
+      };
+
     default:
       return (
         <div className="font-mono text-terminal">

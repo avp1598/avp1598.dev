@@ -7,73 +7,79 @@ import ControlCenterIcon from "@/static/controlcenter.png";
 import { convertToReadableDate } from "@/utils";
 
 type MenuContentProps = {
-  programName: string;
+  title: string;
 };
 
-const MenuContent = ({ programName }: MenuContentProps) => {
+const MenuContent = ({ title }: MenuContentProps) => {
   return (
-    <Menubar.Root className="flex justify-between items-center absolute z-10 bg-[rgb(40,40,40,0.25)] text-white w-full h-6 box-border text-sm backdrop-blur-lg">
+    <Menubar.Root className="hidden md:flex justify-between items-center absolute z-10 bg-[rgb(40,40,40,0.25)] text-white w-full h-6 box-border text-sm backdrop-blur-lg">
       <Menubar.Menu>
         <div className="mx-4 flex flex-row items-center gap-4">
-          <Menubar.Trigger>
+          <Menubar.Trigger id="apple">
             <img
               src={AppleIcon.src}
-              className="h-[18px] mb-0.5"
+              className="h-[18px] w-[16px] mb-0.5"
               style={{
                 filter: "invert(1)",
               }}
+              alt="Apple"
             />
           </Menubar.Trigger>
-          <Menubar.Trigger>
-            <div className="text-xs font-bold ml-2">Terminal</div>
+          <Menubar.Trigger id="title">
+            <div className="text-xs font-bold ml-2">{title}</div>
           </Menubar.Trigger>
-          <Menubar.Trigger>
+          <Menubar.Trigger id="file">
             <div className="text-xs">File</div>
           </Menubar.Trigger>
-          <Menubar.Trigger>
+          <Menubar.Trigger id="edit">
             <div className="text-xs">Edit</div>
           </Menubar.Trigger>
-          <Menubar.Trigger>
+          <Menubar.Trigger id="view">
             <div className="text-xs">View</div>
           </Menubar.Trigger>
-          <Menubar.Trigger>
+          <Menubar.Trigger id="window">
             <div className="text-xs">Window</div>
           </Menubar.Trigger>
-          <Menubar.Trigger>
+          <Menubar.Trigger id="help">
             <div className="text-xs">Help</div>
           </Menubar.Trigger>
         </div>
         <div className="flex flex-row gap-4 float-right mr-4 items-center opacity-90">
-          <div>
+          <Menubar.Trigger id="battery">
             <img
               src={BatteryIcon.src}
-              className="h-[12px]"
+              className="h-[12px] w-[20px]"
               style={{
                 filter: "invert(1)",
               }}
+              alt="Battery"
             />
-          </div>
-          <div>
+          </Menubar.Trigger>
+          <Menubar.Trigger id="wifi">
             <img
               src={WifiIcon.src}
-              className="h-[12px]"
+              className="h-[12px] w-[16px]"
               style={{
                 filter: "invert(1)",
               }}
+              alt="Wifi"
             />
-          </div>
-          <div>
+          </Menubar.Trigger>
+          <Menubar.Trigger id="controlcenter">
             <img
               src={ControlCenterIcon.src}
-              className="h-[12px]"
+              className="h-[12px] w-[14px]"
               style={{
                 filter: "invert(1)",
               }}
+              alt="Control Center"
             />
-          </div>
-          <div className="text-xs">
-            {convertToReadableDate(new Date().getTime())}
-          </div>
+          </Menubar.Trigger>
+          <Menubar.Trigger id="time">
+            <div className="text-xs">
+              {convertToReadableDate(new Date().getTime())}
+            </div>
+          </Menubar.Trigger>
         </div>
       </Menubar.Menu>
     </Menubar.Root>

@@ -23,6 +23,12 @@ const Terminal = (props: Props) => {
       }}
     >
       <div className="p-2">
+        <div className="font-mono text-terminal">
+          <div>ZSH version 6.9.0 (x86_64-apple-darwin20.3.0)</div>
+          <div>
+            Type <span className="text-cyan-500">'help'</span> to get started.
+          </div>
+        </div>
         {commands.map((cmd, i) => (
           <div key={i} className="mb-1">
             <TerminalInput
@@ -51,7 +57,7 @@ type TerminalInputProps = {
   setHistoryIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const TerminalInput = ({
+export const TerminalInput = ({
   index,
   command,
   setCommands,
@@ -95,6 +101,7 @@ const TerminalInput = ({
       <div className="flex items-center">
         <div className="text-[rgb(255,95,88)] font-mono">root@avp1598:~ </div>
         <input
+          aria-label="Terminal Input"
           type="text"
           value={val}
           ref={inputRef}
