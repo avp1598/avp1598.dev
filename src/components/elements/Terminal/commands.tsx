@@ -53,7 +53,7 @@ export const getResponse = (line: string) => {
       return (
         <div className="font-mono text-terminal">
           <div>ZSH version 6.9.0 (x86_64-apple-darwin20.3.0)</div>
-          <div>These shell commands are defined internally.</div>
+          <div>These shell commands are defined internally</div>
           <div>
             Type <span className="text-cyan-500">'help'</span> to see this list.
           </div>
