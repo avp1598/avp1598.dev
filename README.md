@@ -7,7 +7,7 @@
 
 <div align="center">
 
-<img  alt="Demo"  src="./public/assets/ss.webp" />
+<img alt="Demo" src="./public/assets/ss.webp" />
 
 </div>
 
