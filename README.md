@@ -5,7 +5,7 @@
 
 </h2>
 
-<div align="center">
+<div align="center" >
 
 <img alt="Demo" src="./public/assets/ss.webp" />
 
