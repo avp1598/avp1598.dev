@@ -30,7 +30,7 @@ Inspired from [boidushya.com](https://github.com/boidushya/boidushya.com)
 ## Portfolio
 
 <a  href="http://avp1598.dev/"  target="_blank">avp1598.dev</a> made using
-Astro.js, TailwindCSS and React , emulating a macOS terminal among other
+Astro.js, TailwindCSS and React, emulating a macOS terminal among other
 features.<br/>
 
 This project was built using these wonderful tools:
