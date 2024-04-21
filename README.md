@@ -25,7 +25,7 @@ Inspired from [boidushya.com](https://github.com/boidushya/boidushya.com)
 
 ## Lighthouse Scores
 
-<img  alt="Lighthouse Score"  src="./public/assets/lighthouse.webp" />
+<img alt="Lighthouse Score"  src="./public/assets/lighthouse.webp" />
 
 ## Portfolio
 
