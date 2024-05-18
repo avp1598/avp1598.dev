@@ -2,7 +2,7 @@
 
 <br />
 
-<a href="https://avp1598.dev"  target="_blank">avp1598.dev</a>
+<a href="https://avp1598.dev" target="_blank">avp1598.dev</a>
 
 </h2>
 
